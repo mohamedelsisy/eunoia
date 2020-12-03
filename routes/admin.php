@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Admin Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -19,8 +19,6 @@ Route::group(['namespace'=>'Admin','middleware' => 'auth:admin'], function() {
     Route::post('logout' ,'LoginController@logout') -> name('admin.logout');
 
     Route::get('/', 'DashboardController@index') -> name('admin.dashboard');
-
-
 
     /* ############## Begin Admins  Routes ################ */
     Route::group(['prefix' => 'admins'], function (){
@@ -132,6 +130,12 @@ Route::group(['namespace'=>'Admin','middleware' => 'auth:admin'], function() {
         Route::get('delete/{id}','UsersController@destroy')->name('admin.users.destroy');
     });
     /* ############### End Users  Routes ################# */
+
+
+    Route::group(['prefix' => 'tests'], function (){
+
+        Route::get('/', 'TestController@index')->name('admin.tests');
+    });
 
 
 

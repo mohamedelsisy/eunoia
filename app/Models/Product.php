@@ -8,11 +8,13 @@ class Product extends Model
 {
     protected $table = 'products';
 
-    protected $fillable = ['id', 'title', 'user_id', 'status', 'photo', 'description', 'price', 'created_at', 'updated_at'];
+    protected $fillable = ['id', 'title', 'user_id', 'category_id' , 'status', 'photo', 'content', 'price', 'created_at', 'updated_at'];
 
     public function category(){
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
+
+
 
     public function comments(){
         return $this->hasMany(Comment::class, 'product_id', 'id');

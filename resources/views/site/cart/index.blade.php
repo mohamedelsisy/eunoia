@@ -7,7 +7,7 @@
         <div class="container">
             <ul>
                 <li><a href="{{ route('site.home') }}">الرئيسية</a></li>
-                <li>سلة المشتريات</li>
+                <li>قائمة الإعجابات </li>
             </ul>
         </div>
     </div>
@@ -23,11 +23,9 @@
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>
-                                    <th scope="col">صورة المنتج</th>
-                                    <th scope="col">إسم المنتج</th>
-                                    <th scope="col">سعر الوحدة</th>
-                                    <th scope="col">الكمية</th>
-                                    <th scope="col">السعر الكلي</th>
+                                    <th scope="col">صورة الرسمة</th>
+                                    <th scope="col">إسم الرسمة</th>
+                                    <th scope="col">الإجراءات</th>
                                 </tr>
                                 </thead>
 
@@ -47,18 +45,11 @@
 
                                                 </td>
 
-                                                <td class="product-price">
-                                                    <span class="unit-amount">${{ $cart->product->price }}</span>
-                                                </td>
 
-                                                <td class="product-quantity">
-                                                    <span class="unit-amount">{{ $cart->quantity }}</span>
 
-                                                </td>
 
                                                 <td class="product-subtotal">
-                                                    <span class="subtotal-amount">${{ $cart->product->price * $cart->quantity }}</span>
-
+                                                    <a href="{{ route('site.products.show', $cart->product->id) }}" class="success"><i class="far fa-eye"></i></a>
                                                     <a href="{{ route('site.cart.destroy', $cart->id) }}" class="remove"><i class="far fa-trash-alt"></i></a>
                                                 </td>
                                             </tr>
@@ -73,21 +64,7 @@
 
 
 
-                        @if($total > 0)
 
-                            <div class="cart-totals">
-                                <h3>
-                                    إجمالي سلة التسوق
-                                </h3>
-
-                                <ul>
-                                    <li>السعر الكي <span>${{ $total }}</span></li>
-                                    <li>Shipping <span>$20</span></li>
-                                    <li>Total <span><b>${{ $total - 20 }}</b></span></li>
-                                </ul>
-                                <a href="#" class="btn btn-light">إتمام الشراء</a>
-                            </div>
-                        @endif
 
                     </form>
                 </div>

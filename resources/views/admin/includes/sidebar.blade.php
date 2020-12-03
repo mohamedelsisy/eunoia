@@ -93,20 +93,6 @@
                 </ul>
             </li>
 
-            <li class="nav-item  {{ request()->routeIs('admin.orders*') ? 'active open' : '' }}">
-                <a href=""><i class="la la-shopping-cart"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main"> الطلبات  </span>
-                    <span class="badge badge badge-magenta badge-pill float-right mr-2">
-                        {{ App\Models\Order::count() }}
-                    </span>
-                </a>
-                <ul class="menu-content">
-                    <li class="">
-                        <a class="menu-item" href="{{ route('admin.orders') }}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
-                    </li>
-
-                </ul>
-            </li>
 
 
             <li class="nav-item  {{ request()->routeIs('admin.contacts*') ? 'active' : '' }}">

@@ -35,7 +35,7 @@ class CartController extends Controller
                 Cart::where('id', $check->id)->update([
                     'quantity'   => $check->quantity + 1,
                 ]);
-                alert()->success('تم بنجاح','تم الإضافة للسلة بنجاح');
+                alert()->success('تم بنجاح','تم الإضافة للإعجابات بنجاح');
                 return redirect()->back();
             }else{
 
@@ -44,7 +44,7 @@ class CartController extends Controller
                     'product_id'                 => $request->product_id,
 
                 ]);
-                alert()->success('تم بنجاح','تم الإضافة للسلة بنجاح');
+                alert()->success('تم بنجاح','تم الإضافة للإعجابات بنجاح');
                 return redirect()->back();
             }
 

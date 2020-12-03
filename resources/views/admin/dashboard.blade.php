@@ -65,7 +65,7 @@
                                         <div class="media d-flex">
                                             <div class="media-body text-left">
                                                 <h3 class="dark">{{ $products }}</h3>
-                                                <h6>المنتجات</h6>
+                                                <h6>الرسمات</h6>
                                             </div>
                                             <div>
                                                 <i class="la la-picture-o dark font-large-2 float-right"></i>
@@ -105,29 +105,7 @@
                         </a>
                     </div>
 
-                    <div class="col-xl-4 col-lg-6 col-12">
-                        <a href="{{ route('admin.orders') }}">
-                            <div class="card pull-up">
-                                <div class="card-content">
-                                    <div class="card-body">
-                                        <div class="media d-flex">
-                                            <div class="media-body text-left">
-                                                <h3 class="magenta">{{ $orders }}</h3>
-                                                <h6>الطلبات</h6>
-                                            </div>
-                                            <div>
-                                                <i class="la la-shopping-cart magenta font-large-2 float-right"></i>
-                                            </div>
-                                        </div>
-                                        <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
-                                            <div class="progress-bar bg-gradient-x-magenta" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                        </a>
-                    </div>
 
 
 

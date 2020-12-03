@@ -10,9 +10,9 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{route('admin.products')}}"> الرسمات </a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.admins')}}"> المسؤولين </a>
                                 </li>
-                                <li class="breadcrumb-item active">تعديل بيانات رسمة
+                                <li class="breadcrumb-item active">تعديل بيانات مسؤول
                                 </li>
                             </ol>
                         </div>
@@ -42,27 +42,25 @@
                                 @include('admin.includes.alerts.errors')
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form class="form" action="{{route('admin.products.update')}}" method="POST" enctype="multipart/form-data">
+                                        <form class="form" action="{{route('admin.admins.update')}}" method="POST" enctype="multipart/form-data">
                                             @csrf
-                                            <input type="hidden" name="id" value="{{ $product->id }}">
-                                            <input type="hidden" name="old_photo" value="{{ $product->photo }}">
-                                            <input type="hidden" name="user_id" value="{{ $product->user->id }}">
+                                            <input type="hidden" name="id" value="{{ $admin->id }}">
+                                            <input type="hidden" name="oldphoto" value="{{ $admin->photo }}">
+                                            <input type="hidden" name="oldpassword" value="{{ $admin->password }}">
                                             <div class="form-body">
-                                                <h4 class="form-section"><i class="ft-home"></i> بيانات الرسمة </h4>
+                                                <h4 class="form-section"><i class="ft-home"></i> بيانات البيانات </h4>
 
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="category_id">  قسم الرسمة  </label>
-                                                            <select name="category_id" id="category_id" class="form-control">
-                                                                <option value="">اختر  قسم الرسمة</option>
-                                                                @isset($categories)
-                                                                    @foreach($categories as $category)
-                                                                        <option {{ $category->id === $product->category_id ? 'selected' : ''  }}  value="{{ $category->id }}">{{ $category->name }}</option>
-                                                                    @endforeach
-                                                                @endisset
-                                                            </select>
-                                                            @error('category_id')
+                                                            <label for="name"> الإسم   </label>
+                                                            <input type="text"  id="name"
+                                                                   class="form-control"
+                                                                   placeholder="ادخل اسم  المسؤول  "
+                                                                   value="{{ $admin->name }}"
+
+                                                                   name="name">
+                                                            @error('name')
                                                             <span class="text-danger">
                                                                     {{$message}}
                                                                 </span>
@@ -72,20 +70,20 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="title"> عنوان الرسمة   </label>
-                                                            <input type="text"  id="title"
+                                                            <label for="email"> البريد الإلكتروني   </label>
+                                                            <input type="text"  id="email"
                                                                    class="form-control"
-                                                                   placeholder="ادخل عنوان الرسمة   "
-                                                                   value="{{ $product->title }}"
-
-                                                                   name="title">
-                                                            @error('title')
+                                                                   placeholder="ادخل البريد الإلكتروني    "
+                                                                   value="{{ $admin->email }}"
+                                                                   name="email">
+                                                            @error('email')
                                                             <span class="text-danger">
                                                                     {{$message}}
                                                                 </span>
                                                             @enderror
                                                         </div>
                                                     </div>
+
 
 
 
@@ -96,43 +94,23 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="price"> سعر الرسمة   </label>
-                                                            <input type="text"  id="price"
+                                                            <label for="password"> الرقم السري    </label>
+                                                            <input type="password"  id="password"
                                                                    class="form-control"
-                                                                   placeholder="ادخل سعر الرسمة   "
-                                                                   value="{{ $product->price }}"
-
-                                                                   name="price">
-                                                            @error('price')
+                                                                   placeholder="ادخل  الرقم السري    "
+                                                                   value="{{ old('password') }}"
+                                                                   name="password">
+                                                            @error('password')
                                                             <span class="text-danger">
                                                                     {{$message}}
                                                                 </span>
                                                             @enderror
                                                         </div>
                                                     </div>
-
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="status">  حالة الرسمة  </label>
-                                                            <select name="status" id="status" class="form-control">
-                                                                <option value="">اختر  حالة الرسمة</option>
-                                                                <option {{ $product->status === 0 ? 'selected' : ''  }}  value="0">نشط</option>
-                                                                <option {{ $product->status === 1 ? 'selected' : ''  }}   value="1">محظور</option>
-                                                            </select>
-                                                            @error('status')
-                                                            <span class="text-danger">
-                                                                    {{$message}}
-                                                                </span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label for="photo"> صورة الرسمة   </label>
+                                                            <label for="photo"> صورة المسؤول   </label>
                                                             <input type="file"  id="photo"
                                                                    class="form-control"
                                                                    value="{{ old('photo') }}"
@@ -144,19 +122,8 @@
                                                             @enderror
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label for="description"> وصف الرسمة   </label>
-                                                            <textarea name="description" id="description" class="form-control" placeholder="أدخل وصف الرسمة">{{ $product->content }}</textarea>
-                                                            @error('description')
-                                                            <span class="text-danger">
-                                                                    {{$message}}
-                                                                </span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
+
+
                                                 </div>
                                             </div>
 

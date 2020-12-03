@@ -12,7 +12,7 @@
                                     <a href="{{ route('admin.dashboard') }}">الرئيسية</a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    الرسمات
+                                    المسؤولين
                                 </li>
 
                             </ol>
@@ -27,7 +27,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">كل الرسمات</h4>
+                                    <h4 class="card-title">كل المسؤولين</h4>
                                     <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
                                         <ul class="list-inline mb-0">
@@ -47,47 +47,20 @@
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
                                                     <tr>
-                                                        <th>عنوان الرسمة </th>
-                                                        <th>إسم القسم</th>
-                                                        <th>إسم المستخدم</th>
-                                                        <th>السعر</th>
-                                                        <th>الحالة</th>
+                                                        <th>اسم المسؤول </th>
+                                                        <th>البريد الإلكتروني  </th>
                                                         <th>صورة مصغرة</th>
                                                         <th>الإجراءات</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @isset($products)
-                                                        @foreach($products as $product)
+                                                    @isset($tests)
+                                                        @foreach($tests as $test)
                                                             <tr>
-                                                                <td>{{ $product->title }}</td>
-                                                                <td>{{ $product->category->name }}</td>
-                                                                <td>{{ $product->user->name }}</td>
-                                                                <td>{{ $product->price }}</td>
-
-                                                                <td>
-                                                                    @if($product->status === 0)
-                                                                        <span class="success">نشط</span>
-                                                                    @else
-                                                                        <span class="danger">محظور</span>
-
-                                                                    @endif
-                                                                </td>
-                                                                <td>
-                                                                    <img src="{{ asset('assets/'.$product['photo']) }}" width="100" alt="">
-                                                                </td>
-
-
-
-                                                                <td>
-                                                                    <a href="{{route('admin.products.edit', $product->id)}}" class="btn btn-success btn-min-width box-shadow-1 mr-1 mb-1">
-                                                                        <i class="la la-edit"></i>
-                                                                    </a>
-                                                                    <a href="{{route('admin.products.destroy', $product->id)}}" class="btn btn-danger btn-min-width box-shadow-5 mr-1 mb-1">
-                                                                        <i class="la la-close"></i>
-                                                                    </a>
-
-                                                                </td>
+                                                                <td>{{ $test->name }}</td>
+                                                                <td>{{ $test->phone }}</td>
+                                                                <td>{{ $test->age }}</td>
+                                                               
                                                             </tr>
                                                         @endforeach
                                                     @endisset

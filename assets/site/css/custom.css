@@ -1,15 +1,4 @@
-/*
- * %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- *
- * Template Name: Alraed Clinc
- * Template URI: http://alraedclinic.com/
- .
- * Author: Mohamed Elsisy
- * Author URI: http://mohamedelsisy.me
- * Version: 1.0
- *
- * %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- */
+
 body,h1,h2,h3,h5,h4,h6,a,p,div,span,button,ul,li, input, .cairo{
     font-family: cairo !important;
 }
@@ -20,50 +9,7 @@ body,h1,h2,h3,h5,h4,h6,a,p,div,span,button,ul,li, input, .cairo{
     height: 65px;
 }
 
-.single-services-box .icon img{
-    width: 50px;
-    border-radius: inherit;
-}
-
-.single-fun-facts .icon img{
-    width: 40px;
-}
-
-
-
-
-.feedback-slides .client-thumbnails .item .img-fill img{
-    width: 50px !important;
-    height: 50px !important;
-}
-
-.offers .single-services-box{
-    padding: 0px!important;
-}
-.offers .single-services-box img{
-    width: 100%;
-}
-.offers .single-services-box .read-more-btn,
-.offers .single-services-box h3,
-.offers .single-services-box p
-{
-    padding: 4px;
-}
-.offers .single-services-box .read-more-btn{
-    padding-bottom: 15px;
-}
-
-.offers .single-services-box span{
-    position: absolute;
-    top: 50px;
-    right: 10px;
-    display: inline-block;
-    background-color: #FFF;
-    padding: 10px;
-    border-radius: 19px;
-    color: #eb587c;
-}
-
-.article-image img{
+.single-product-box img,.single-lookbook-box img{
+    height: 280px;
     width: 100%;
 }
