@@ -5,7 +5,7 @@
     <div class="page-title-area">
         <div class="container">
             <ul>
-                <li><a href="{{ route('site.home') }}">الرئيسية</a></li>
+                <li><a href="{{ route('home') }}">الرئيسية</a></li>
                 <li>
                     {{ $product->title }}
                 </li>

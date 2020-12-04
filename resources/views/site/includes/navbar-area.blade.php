@@ -2,21 +2,22 @@
 <div class="navbar-area">
     <div class="comero-mobile-nav">
         <div class="logo">
-            <a href="{{ route('site.home') }}"><img src="{{ asset('assets/site/img/logo.png') }}" width="60px" alt="logo"></a>
+            <a href="{{ route('home') }}"><img src="{{ asset('assets/site/img/logo.png') }}" width="60px" alt="logo"></a>
         </div>
     </div>
 
     <div class="comero-nav">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand" href="{{ route('site.home') }}">
+                <a class="navbar-brand" href="{{ route('home') }}">
                     <img src="{{ asset('assets/site/img/logo.png') }}" width="100px"  alt="logo">
                 </a>
 
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav">
 
-                        <li class="nav-item"> <a href="{{ route('site.home') }}">الرئيسية</a></li>
+                        <li class="nav-item"> <a href="{{ route('home') }}">الرئيسية</a></li>
+                        <li class="nav-item"> <a href="{{ route('about') }}">من نحن</a></li>
 
                         @foreach(\App\Models\Category::whereHas('products')->get() as $category)
                             <li class="nav-item">
@@ -25,6 +26,8 @@
                                 </a>
                             </li>
                         @endforeach
+                        <li class="nav-item"> <a href="{{ route('contact') }}">إتصل بنا</a></li>
+
 
                     </ul>
 
@@ -41,7 +44,8 @@
 
                                     <div class="dropdown-menu text-left" aria-labelledby="dropdownMenuLink">
                                         <a class="dropdown-item" href="{{ route('site.profiles.show', auth()->id()) }}">الصفحة الشخصية</a>
-                                        <a class="dropdown-item" href="{{ route('site.products.create') }}">إضافة منتج جديد</a>
+                                        <a class="dropdown-item" href="{{ route('chat') }}">  الرسائل</a>
+                                        <a class="dropdown-item" href="{{ route('site.products.create') }}">إضافة رسمة جديدة</a>
 
                                         <a class="dropdown-item  ">
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST">

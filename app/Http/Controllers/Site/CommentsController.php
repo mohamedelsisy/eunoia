@@ -25,7 +25,7 @@ class CommentsController extends Controller
 
         } catch (Exception $e) {
             alert()->error('خطأ ','يوجد خطأ ما');
-            return redirect()->route('site.home');
+            return redirect()->route('home');
 
         }
 

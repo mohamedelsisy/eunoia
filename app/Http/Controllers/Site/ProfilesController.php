@@ -17,12 +17,12 @@ class ProfilesController extends Controller
             $user = User::find($id);
             if (!$user){
                 alert()->error('خطأ ','  هذا العضو غير موجود');
-                return redirect()->route('site.home');
+                return redirect()->route('home');
             }
             return view('site.profiles.index', compact('user'));
         }catch (Exception $exception){
             alert()->error('خطأ ','  يوجد خطأ ما   ');
-            return redirect()->route('site.home');
+            return redirect()->route('home');
 
         }
 

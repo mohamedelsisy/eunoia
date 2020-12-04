@@ -7,7 +7,7 @@
     <div class="page-title-area">
         <div class="container">
             <ul>
-                <li><a href="{{ route('site.home') }}">الرئيسية</a></li>
+                <li><a href="{{ route('home') }}">الرئيسية</a></li>
                 <li>إنشاء حساب</li>
             </ul>
         </div>
@@ -64,7 +64,7 @@
 
                             <button type="submit" class="btn btn-primary">إنشاء الحساب</button>
 
-                            <a href="{{ route('site.home') }}" class="return-store">أو الرجوع للرئيسية</a>
+                            <a href="{{ route('home') }}" class="return-store">أو الرجوع للرئيسية</a>
                         </form>
                     </div>
                 </div>

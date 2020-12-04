@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'Site'], function (){
-    Route::get('/', 'HomeController@index')->name('site.home');
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/about-us', 'HomeController@about')->name('about');
+    Route::get('/contact-us', 'HomeController@contact')->name('contact');
+    Route::post('/contact-us', 'HomeController@send')->name('send');
 
     Route::group(['prefix' => 'cart', 'middleware' => 'auth'], function (){
         Route::get('/', 'CartController@index')->name('site.cart.index');
@@ -64,15 +67,6 @@ Route::group(['namespace' => 'Site'], function (){
         });
     });
     /* ############### End Profiles  Routes ################# */
-
-
-
-
-
-
-
-
-
 
 
 });
